@@ -1,0 +1,23 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+nav{
+  background-color: aqua;
+  display: flex;
+  justify-content: space-between;
+}
+.searchBox{
+  background-color: bisque;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* login page css */ 
+.loginForm{
+  display: flex;
+  flex-direction: column;
+}
