@@ -1,0 +1,26 @@
+-- Optional shared content seed. Run after supabaseSchema.sql.txt.
+-- These are shared campus records, not per-user demo profiles or notes.
+
+insert into public.events (id, title, category, date, start_time, end_time, venue, organizer, banner, status)
+values
+  ('campus-hackathon-2026', 'Campus Build Sprint 2026', 'Hackathon', '2026-09-12', '09:00', '18:00', 'Innovation Lab', 'Computer Science Department', 'linear-gradient(135deg, #4f46e5, #7c3aed)', 'published'),
+  ('ai-lab-workshop-2026', 'Practical AI Lab Workshop', 'Workshop', '2026-09-18', '10:00', '13:00', 'AI Research Lab', 'AI Research Club', 'linear-gradient(135deg, #0284c7, #2563eb)', 'published'),
+  ('student-showcase-2026', 'Student Project Showcase', 'Seminar', '2026-09-25', '14:00', '17:00', 'Main Auditorium', 'Student Affairs Office', 'linear-gradient(135deg, #ea580c, #db2777)', 'published')
+on conflict (id) do update set
+  title = excluded.title,
+  category = excluded.category,
+  date = excluded.date,
+  start_time = excluded.start_time,
+  end_time = excluded.end_time,
+  venue = excluded.venue,
+  organizer = excluded.organizer,
+  banner = excluded.banner,
+  status = excluded.status;
+
+insert into public.announcements (title, description, category, priority, publish_date, status)
+values
+  ('Campus Build Sprint registrations are open', 'Register your team before September 10. Bring a working idea and your laptop.', 'Events', 'High', '2026-08-21', 'published'),
+  ('AI Lab Workshop seats available', 'Hands-on session covering model evaluation, prompts, and responsible AI practices.', 'Workshop', 'Normal', '2026-08-21', 'published'),
+  ('Student Project Showcase call for entries', 'Submit your project summary to Student Affairs before September 20 for a showcase slot.', 'Campus', 'Normal', '2026-08-21', 'published');
+
+notify pgrst, 'reload schema';

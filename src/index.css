@@ -1,1 +1,10 @@
 @import "tailwindcss";
+
+select {
+	color-scheme: dark;
+}
+
+select option {
+	background: #181229;
+	color: #f8fafc;
+}

@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run *)",
+      "Bash(echo \"lint exit code: $?\")",
+      "Bash(echo \"=== LINT EXIT: $? ===\")",
+      "Bash(echo \"=== BUILD EXIT: $? ===\")",
+      "WebFetch(domain:www.arbeitnow.com)",
+      "Bash(curl -s \"https://www.arbeitnow.com/api/job-board-api\")",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" \"https://www.arbeitnow.com/api/job-board-api\")",
+      "Bash(node -e ' *)",
+      "Bash(sed -E 's/\\(KEY|PUBLISHABLE\\)[^=]*=.*/\\\\1=<redacted>/' .env)",
+      "Bash(sed -E 's/\\(KEY|PUBLISHABLE\\)[^=]*=.*/\\\\1=<redacted>/' .env.local)",
+      "Bash(curl -s -D - -o /dev/null -H \"Origin: http://localhost:5173\" \"https://www.arbeitnow.com/api/job-board-api?page=1\")",
+      "Bash(curl -s \"http://localhost:5173/\")",
+      "Bash(curl -s \"http://localhost:5173/src/main.jsx\")",
+      "Bash(curl -s \"https://www.arbeitnow.com/api/job-board-api?page=1\")",
+      "WebFetch(domain:www.themuse.com)",
+      "Bash(node -e \"console.log\\(JSON.stringify\\(require\\('./package.json'\\).scripts\\)\\)\")"
+    ]
+  }
+}
